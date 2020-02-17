@@ -4,6 +4,13 @@ import logger.StepLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+    /*
+    Class contain all settings of the driver
+    Initializing the driver and closing the driver
+    */
+
+
+
 public class DriverManager {
 
     private static WebDriver driver;

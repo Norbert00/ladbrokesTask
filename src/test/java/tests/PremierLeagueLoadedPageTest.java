@@ -2,26 +2,23 @@ package tests;
 
 
 import org.testng.annotations.Test;
-import pop.FootballMenu;
-import pop.LandBrokers;
-
+import pop.FootballHeaderMenu;
+import pop.LandBrokersHeaderMenu;
 import static org.testng.Assert.assertTrue;
-import static pop.FootballMenu.EXPECTED_URL;
+import static pop.FootballHeaderMenu.EXPECTED_URL;
 
 public class PremierLeagueLoadedPageTest extends TestBase {
 
 
 
-
     @Test
-    public void openBrowserWithCorrectUrlTest() {
-        LandBrokers landBrokers = new LandBrokers();
-        landBrokers.moveMouseTo();
-        FootballMenu footballMenu = new FootballMenu();
-        footballMenu.clickOnPremierLeague();
+    public void openPremierLeaguePageTest() {
+        LandBrokersHeaderMenu landBrokersHeaderMenu = new LandBrokersHeaderMenu();
+        landBrokersHeaderMenu.moveMouseTo();
+        FootballHeaderMenu footballHeaderMenu = new FootballHeaderMenu();
+        footballHeaderMenu.clickOnPremierLeague();
 
-        assertTrue(footballMenu.isCorrectUrl(EXPECTED_URL));
-
+        assertTrue(footballHeaderMenu.isCorrectUrl(EXPECTED_URL));
     }
 
 

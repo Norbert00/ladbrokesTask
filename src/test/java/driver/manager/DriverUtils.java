@@ -4,6 +4,12 @@ import logger.StepLogger;
 
 public class DriverUtils {
 
+    /*
+    The class contains browser settings
+    Enlarges the browser window and redirects to the specified URL
+    */
+
+
     public static void setInitialConfiguration() {
         DriverManager.getWebDriver().manage().window().maximize();
     }

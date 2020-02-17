@@ -8,15 +8,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/*
+    Class contain all header menu elements plus all methods which can be performed on them
+ */
 
-public class LandBrokers {
 
+public class LandBrokersHeaderMenu {
 
 
     @FindBy(id = "menu-item-217550")
     private WebElement football;
 
-    public LandBrokers() {
+
+    public LandBrokersHeaderMenu() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
@@ -25,7 +29,6 @@ public class LandBrokers {
     public void moveMouseTo() {
         OwnActions.mouseHover(football);
         StepLogger.setLoggerInfo("User move mouse to Football in header menu");
-
     }
 
 }

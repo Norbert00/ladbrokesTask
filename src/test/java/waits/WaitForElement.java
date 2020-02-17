@@ -5,8 +5,12 @@ package waits;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static driver.manager.DriverManager.getWebDriver;
+
+/*
+    The class contains methods for implementing the WebDriverWait class
+ */
+
 
 public class WaitForElement {
 

@@ -8,21 +8,22 @@ import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
 
 
-public class FootballMenu {
+/*
+    The class contains the elements of the football menu, plus the methods that can be performed on them,
+    Menu appear when you hover your mouse over the Football in the header menu.
+ */
+
+public class FootballHeaderMenu {
 
     public static final String EXPECTED_URL = "https://news.ladbrokes.com/football/premier-league";
 
-    public WebElement getPremierLeague() {
-        return premierLeague;
-    }
 
     @FindBy(id="menu-item-222079")
     private WebElement premierLeague;
 
 
 
-
-    public FootballMenu(){
+    public FootballHeaderMenu(){
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
