@@ -1,4 +1,4 @@
-package pop;
+package pop.header;
 
 
 import actions.OwnActions;
@@ -16,18 +16,22 @@ import org.openqa.selenium.support.PageFactory;
 public class LandBrokersHeaderMenu {
 
 
-    @FindBy(id = "menu-item-217550")
-    private WebElement football;
-
-
     public LandBrokersHeaderMenu() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
 
+    public WebElement getFootball() {
+        return football;
+    }
 
-    public void moveMouseTo() {
-        OwnActions.mouseHover(football);
+    @FindBy(id = "menu-item-217550")
+    private WebElement football;
+
+
+
+    public void moveMouseTo(WebElement element) {
+        OwnActions.mouseHover(element);
         StepLogger.setLoggerInfo("User move mouse to Football in header menu");
     }
 
