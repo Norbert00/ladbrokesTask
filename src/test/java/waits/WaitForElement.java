@@ -18,9 +18,10 @@ public class WaitForElement {
         return new WebDriverWait(getWebDriver(), 10);
     }
 
-    public static void waitUntilElementIsVisible(WebElement element) {
+    public static boolean waitUntilElementIsVisible(WebElement element) {
         WebDriverWait webDriverWait = getWebDriverWait();
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
+        return true;
     }
 
 }
