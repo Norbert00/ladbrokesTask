@@ -10,10 +10,9 @@ public class LatestBettingNewsClickSeeMoreTest extends TestBase {
     @Test
     public void userClickSeeMoreButtonTest() {
         LatestBettingNews news = new LatestBettingNews();
-        news.clickOnSeeMoreButton(1,news.getAllSeeMoreButtons());
+        news.clickOnSeeMoreButton(news.getSeeMoreButton());
 
-        assertTrue(news.loadedNewsCheck(news.getAllBricksNews()));
-
+        assertTrue(news.isVisibleLoadedElement(news.getLoadedElement()));
     }
 
 
