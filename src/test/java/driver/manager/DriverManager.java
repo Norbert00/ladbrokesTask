@@ -20,7 +20,7 @@ public class DriverManager {
 
     public static WebDriver getWebDriver() {
         if(driver == null) {
-            System.setProperty("webdriver.chrome.driver", "C:/automation_tools/browser/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
             driver = new ChromeDriver();
             StepLogger.setLoggerInfo("Driver has been initialized");
         }
