@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
+
 import java.util.List;
 
 
@@ -18,20 +19,21 @@ public class LatestBettingNews {
     }
 
 
-    private List<WebElement> allSeeMoreButtons = catchAllSeeMoreButtons();
-    private List<WebElement> allBricksNews = catchAllBricksNews();
+    private final List<WebElement> allSeeMoreButtons = catchAllSeeMoreButtons();
+    private final List<WebElement> allBricksInLatestBettingSection = catchAllBricksNewsFromLatestBettingSection();
+
 
     public List<WebElement> getAllSeeMoreButtons() {
         return allSeeMoreButtons;
     }
-    public List<WebElement> getAllBricksNews() {
-        return allBricksNews;
+    public List<WebElement> getAllBricksInLatestBettingSection() {
+        return allBricksInLatestBettingSection;
     }
 
 
-    private List<WebElement> catchAllBricksNews() {
+    private List<WebElement> catchAllBricksNewsFromLatestBettingSection() {
         List<WebElement> list;
-        list = DriverManager.getWebDriver().findElements(By.xpath("//div[@class='post-list-frame mobile-hidden cf']/div"));
+        list = DriverManager.getWebDriver().findElements(By.xpath("//div[@data-sticky='6']//parent::div/div/div[@class='post-brick d-1of2 t-1of2 m-all']"));
         return list;
     }
 
@@ -42,38 +44,32 @@ public class LatestBettingNews {
     }
 
 
-    public void clickOnSeeMoreButton(int indexOfElement, List<WebElement> e) {
-        switch (indexOfElement) {
-            case 1:
-                WaitForElement.waitUntilElementIsVisible(e.get(0));
-                e.get(0).click();
-                StepLogger.setLoggerInfo("User has clicked on the first See More button");
-                break;
-            case 2:
-                WaitForElement.waitUntilElementIsVisible(e.get(1));
-                e.get(1).click();
-                StepLogger.setLoggerInfo("User has clicked on the second See More button");
-                break;
-            case 3:
-                WaitForElement.waitUntilElementIsVisible(e.get(2));
-                e.get(2).click();
-                StepLogger.setLoggerInfo("User has clicked on the third See More button");
-                break;
-            default:
-                System.out.println("Empty array");
-        }
+//    public void clickOnSeeMoreButton(int indexOfElement, List<WebElement> elementInTheList) {
+//        elementInTheList.get(indexOfElement - 1).click();
+//        StepLogger.setLoggerInfo("User clicked on See More button " + indexOfElement);
+//    }
+
+    public void clickOnSeeMoreButton(int indexOfElement) {
+        List<WebElement> e = getAllSeeMoreButtons();
+        WaitForElement.waitUntilElementIsVisible(e.get(indexOfElement));
+        e.get(indexOfElement - 1).click();
+        StepLogger.setLoggerInfo("User clicked");
     }
 
-
-    public boolean loadedNewsCheck(List<WebElement> e) {
-        if (e.size() > 25) {
+    public boolean loadedNewsCheck(List<WebElement> listToCheck) {
+        int sizeAfterClick = catchAllBricksNewsFromLatestBettingSection().size();
+        boolean result;
+        if (sizeAfterClick > listToCheck.size()) {
             StepLogger.setLoggerInfo("Bricks with news have been loaded ");
-            return true;
+            result = true;
         } else {
-            StepLogger.setLoggerInfo("loadedNewsChecked failed");
-            return false;
+            StepLogger.setLoggerInfo("Bricks with news have been loaded ");
+            result = false;
         }
+        return result;
     }
+
+
 
 }
 

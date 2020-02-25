@@ -17,8 +17,6 @@ public class FootballHeaderMenu {
 
     public static final String EXPECTED_URL = "https://news.ladbrokes.com/football/premier-league";
 
-
-
     @FindBy(id="menu-item-222079")
     private WebElement premierLeague;
 
